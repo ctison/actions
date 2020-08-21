@@ -1,0 +1,12 @@
+{
+  "extends": ["github>ctison/renovate"],
+  "automerge": true,
+  "regexManagers": [
+    {
+      "fileMatch": ["^earthly/action.yaml$"],
+      "datasourceTemplate": "github-releases",
+      "matchStrings": ["\n  version:\n    default: (?<currentValue>.+?)\n"],
+      "depNameTemplate": "earthly/earthly"
+    }
+  ]
+}

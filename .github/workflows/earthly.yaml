@@ -1,0 +1,20 @@
+name: Test Earthly
+
+on:
+  push:
+    paths:
+      - .github/workflows/earthly.yaml
+      - earthly/**
+  pull_request:
+    paths:
+      - .github/workflows/earthly.yaml
+      - earthly/**
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use ${{github.repository}}/earthly
+        uses: ./earthly
+      - run: earth --version

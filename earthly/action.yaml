@@ -1,0 +1,17 @@
+name: Earthly
+description: Install earthly CLI named earth from https://github.com/earthly/earthly/releases
+inputs:
+  version:
+    default: v0.3.0
+    required: false
+    description: Version of earthly CLI to install (defaults to latest)
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        set -ux
+        mkdir -m 0755 -p ~/bin/
+        curl -Lo ~/bin/earth https://github.com/earthly/earthly/releases/download/"${{inputs.version}}"/earth-linux-amd64
+        chmod 555 ~/bin/earth
+        echo '::add-path::~/bin/'
