@@ -1,0 +1,20 @@
+name: Conftest
+description: Install conftest from https://github.com/open-policy-agent/conftest/releases
+inputs:
+  version:
+    default: v0.20.0
+    required: false
+    description: Version of conftest to install (defaults to latest)
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        VERSION=$(echo "${{inputs.version}}" | sed s/^v//)
+        set -ux
+        mkdir -m 0755 -p ~/bin/
+        curl -LO https://github.com/open-policy-agent/conftest/releases/download/"${{inputs.version}}"/conftest_"$VERSION"_Linux_x86_64.tar.gz
+        tar --no-same-{o,p} -C ~/bin/ -xf conftest_"$VERSION"_Linux_x86_64.tar.gz conftest
+        chmod 555 ~/bin/conftest
+        rm conftest_"$VERSION"_Linux_x86_64.tar.gz
+        echo '::add-path::~/bin/'

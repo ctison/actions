@@ -3,6 +3,12 @@
   "automerge": true,
   "regexManagers": [
     {
+      "fileMatch": ["^conftest/action.yaml$"],
+      "datasourceTemplate": "github-releases",
+      "matchStrings": ["\n  version:\n    default: (?<currentValue>.+?)\n"],
+      "depNameTemplate": "open-policy-agent/conftest"
+    },
+    {
       "fileMatch": ["^earthly/action.yaml$"],
       "datasourceTemplate": "github-releases",
       "matchStrings": ["\n  version:\n    default: (?<currentValue>.+?)\n"],
