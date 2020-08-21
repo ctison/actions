@@ -13,6 +13,12 @@
       "datasourceTemplate": "github-releases",
       "matchStrings": ["\n  version:\n    default: (?<currentValue>.+?)\n"],
       "depNameTemplate": "earthly/earthly"
+    },
+    {
+      "fileMatch": ["^opa/action.yaml$"],
+      "datasourceTemplate": "github-releases",
+      "matchStrings": ["\n  version:\n    default: (?<currentValue>.+?)\n"],
+      "depNameTemplate": "open-policy-agent/opa"
     }
   ]
 }

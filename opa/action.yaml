@@ -1,0 +1,17 @@
+name: OPA
+description: Install opa from https://github.com/open-policy-agent/opa/releases
+inputs:
+  version:
+    default: v0.23.1
+    required: false
+    description: Version of opa to install (defaults to latest)
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        set -ux
+        mkdir -m 0755 -p ~/bin/
+        curl -Lo ~/bin/opa https://github.com/open-policy-agent/opa/releases/download/"${{inputs.version}}"/opa_linux_amd64
+        chmod 555 ~/bin/opa
+        echo '::add-path::~/bin/'

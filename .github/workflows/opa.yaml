@@ -1,0 +1,20 @@
+name: Test OPA
+
+on:
+  push:
+    paths:
+      - .github/workflows/opa.yaml
+      - opa/**
+  pull_request:
+    paths:
+      - .github/workflows/opa.yaml
+      - opa/**
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use ${{github.repository}}/opa
+        uses: ./opa
+      - run: opa version
