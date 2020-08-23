@@ -13,8 +13,9 @@ runs:
         VERSION=$(echo "${{inputs.version}}" | sed s/^v//)
         set -ux
         mkdir -m 0755 -p ~/bin/
-        curl -LO https://github.com/open-policy-agent/conftest/releases/download/"${{inputs.version}}"/conftest_"$VERSION"_Linux_x86_64.tar.gz
-        tar --no-same-{o,p} -C ~/bin/ -xf conftest_"$VERSION"_Linux_x86_64.tar.gz conftest
+        KERNEL_NAME="$(uname -s)"
+        curl -LO https://github.com/open-policy-agent/conftest/releases/download/"${{inputs.version}}"/conftest_"$VERSION"_"$KERNEL_NAME"_x86_64.tar.gz
+        tar --no-same-{o,p} -C ~/bin/ -xf conftest_"$VERSION"_"$KERNEL_NAME"_x86_64.tar.gz conftest
         chmod 555 ~/bin/conftest
-        rm conftest_"$VERSION"_Linux_x86_64.tar.gz
+        rm conftest_"$VERSION"_"$KERNEL_NAME"_x86_64.tar.gz
         echo '::add-path::~/bin/'

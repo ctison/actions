@@ -12,7 +12,10 @@ on:
 
 jobs:
   Test:
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v2
       - name: Use ${{github.repository}}/conftest
