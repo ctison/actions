@@ -1,0 +1,20 @@
+name: Test kustomize
+
+on:
+  push:
+    paths:
+      - .github/workflows/kustomize.yaml
+      - kustomize/**
+  pull_request:
+    paths:
+      - .github/workflows/kustomize.yaml
+      - kustomize/**
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use ${{github.repository}}/kustomize
+        uses: ./kustomize
+      - run: kustomize version --short
