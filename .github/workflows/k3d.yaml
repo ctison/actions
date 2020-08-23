@@ -1,0 +1,20 @@
+name: Test k3d
+
+on:
+  push:
+    paths:
+      - .github/workflows/k3d.yaml
+      - k3d/**
+  pull_request:
+    paths:
+      - .github/workflows/k3d.yaml
+      - k3d/**
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use ${{github.repository}}/k3d
+        uses: ./k3d
+      - run: k3d --version
