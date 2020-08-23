@@ -12,6 +12,6 @@ runs:
       run: |
         set -ux
         mkdir -m 0755 -p ~/bin/
-        curl -Lo ~/bin/earth https://github.com/earthly/earthly/releases/download/"${{inputs.version}}"/earth-linux-amd64
+        curl -Lo ~/bin/earth https://github.com/earthly/earthly/releases/download/"${{inputs.version}}"/earth-"$(uname -s | tr '[:upper:]' '[:lower:]')"-amd64
         chmod 555 ~/bin/earth
         echo '::add-path::~/bin/'
