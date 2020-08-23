@@ -1,6 +1,5 @@
 {
   "extends": ["github>ctison/renovate"],
-  "automerge": true,
   "regexManagers": [
     {
       "fileMatch": ["^.+/action.yaml$"],
