@@ -12,6 +12,6 @@ runs:
       run: |
         set -ux
         mkdir -m 0755 -p ~/bin/
-        curl -Lo ~/bin/k3d https://github.com/rancher/k3d/releases/download/'${{inputs.version}}'/k3d-linux-amd64
+        curl -Lo ~/bin/k3d https://github.com/rancher/k3d/releases/download/'${{inputs.version}}'/k3d-"$(uname -s | tr '[:upper:]' '[:lower:]')"-amd64
         chmod 555 ~/bin/k3d
         echo '::add-path::~/bin/'
