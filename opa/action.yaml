@@ -2,7 +2,7 @@ name: OPA
 description: Install opa from https://github.com/open-policy-agent/opa/releases
 inputs:
   version:
-    default: v0.23.1 # open-policy-agent/opa
+    default: v0.23.2 # open-policy-agent/opa
     required: false
     description: Version of opa to install (defaults to latest)
 runs:
