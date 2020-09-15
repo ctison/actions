@@ -2,7 +2,7 @@ name: Earthly
 description: Install earthly CLI named earth from https://github.com/earthly/earthly/releases
 inputs:
   version:
-    default: v0.3.5 # earthly/earthly
+    default: v0.3.6 # earthly/earthly
     required: false
     description: Version of earthly CLI to install (defaults to latest)
 runs:
