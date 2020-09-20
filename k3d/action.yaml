@@ -2,7 +2,7 @@ name: k3d
 description: Install k3d from https://github.com/rancher/k3d/releases
 inputs:
   version:
-    default: v3.0.1 # rancher/k3d
+    default: v3.0.2 # rancher/k3d
     required: false
     description: Version of k3d to install (defaults to latest)
 runs:
