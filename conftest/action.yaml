@@ -2,7 +2,7 @@ name: Conftest
 description: Install conftest from https://github.com/open-policy-agent/conftest/releases
 inputs:
   version:
-    default: v0.21.0 # open-policy-agent/conftest
+    default: v0.22.0 # open-policy-agent/conftest
     required: false
     description: Version of conftest to install (defaults to latest)
 runs:
