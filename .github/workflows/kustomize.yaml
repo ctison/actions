@@ -17,7 +17,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # tag=v2
       - name: Use ${{github.repository}}/kustomize
         uses: ./kustomize
       - run: kustomize version --short
